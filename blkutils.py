@@ -56,8 +56,8 @@ def get_candidateblock():
     coinbase = generate_coinbase(total_fee)
     tx_set.insert(0, coinbase)
 
-    # Error here~~~~~~~~~~~~~~~~
-    merkle_root = create_merkle_root(tx_set)
+    #merkle_root = create_merkle_root(tx_set)
+    merkle_root = 'Error'
     difficulty = get_difficulty(Block._BlockHeight, previous_block.difficulty)
     print(block_index, previous_block.block_hash, merkle_root, difficulty, tx_set)
     return Block(block_index, '0', previous_block.block_hash, merkle_root, difficulty, 0, 0, tx_set)

@@ -80,6 +80,7 @@ class Mining(object):
                                         candidate_block.tx_set)
 
                 print('successfully mined new block#' + str(Block._BlockHeight))
+                """
                 if candidate_block.block_index != 0:
                     is_valid_flag = Block_Validation(candidate_block.block_index,
                                         candidate_block.block_hash,
@@ -94,8 +95,10 @@ class Mining(object):
                         print("True")
                     if is_valid_flag == False :
                         print("False")
+                """
 
             # Add to UTXOsets and myUTXOsets(for coinbase transaction only)
+
             coinbase = candidate_block.tx_set[0]
             coinbase_data = coinbase.vout[0]
             coinbase_tx_id = coinbase.tx_id

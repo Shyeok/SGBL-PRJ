@@ -1,28 +1,30 @@
 import base64
 import json
 import time
-
 import plyvel
 
+# import transaction.py
 from transaction import Transaction, Vin, Vout
 
+# Block class
 class Block(object):
+
     # Class variables
-    _BlockChain = []
-    _BlockHeight = 0
+    _chain =[] #_BlockChain = []
+    _height = 0 #BlockHeight = 0
     _raw_block = 0
 
     # Block class init
-    def __init__(self, block_index, block_hash, previous_block, merkle_root, difficulty, timestamp, nonce, tx_set):
+    def __init__(self, id, hash, prev_hash, mrkl_root, diff, blk_time, nonce, tx_set):
         # Key = str(index).encode()
-        self.block_index = block_index          # int
-        self.block_hash = block_hash            # string
-        self.previous_block = previous_block    # string
-        self.merkle_root = merkle_root          # string
-        self.difficulty = difficulty            # int
-        self.timestamp = timestamp              # int
-        self.nonce = nonce                      # int
-        self.tx_set = tx_set                    # list[Transaction]
+        self.id = id                # int
+        self.hash = hash            # string
+        self.prev_hash = prev_hash  # string
+        self.mrkl_root = mrkl_root  # string
+        self.diff = diff            # int
+        self.blk_time = blk_time    # int
+        self.nonce = nonce          # int
+        self.tx_set = tx_set        # list[Transaction]
 
 
     # Get Block Info from db
